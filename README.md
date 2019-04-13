@@ -9,6 +9,9 @@ For questions or issues please use the [Google Group](https://groups.google.com/
 
 # usage #
 wget https://pjreddie.com/media/files/yolov3.weights
+
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+
 ./darknet detector train cfg/coco.data cfg/yolov3.cfg darknet53.conv.74
+
 ./darknet detector valid cfg/coco.data cfg/yolov3.cfg yolov3.weights
