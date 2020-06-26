@@ -15,13 +15,13 @@ int CreateTool(cl_platform_id *platform,cl_device_id *device,cl_context *context
     //获得第一个可用平台
     err=clGetPlatformIDs(1, platform, &num);
     if(err!=CL_SUCCESS||num<=0||platform==NULL){
-        fprintf(stderr,"no platform.");
+        fprintf(stderr,"no platform.\n");
         return -1;
     }
     //获得第一个可用设备
     err=clGetDeviceIDs(*platform, CL_DEVICE_TYPE_GPU, 1, device, &num);
     if(err!=CL_SUCCESS||num<=0||device==NULL){
-        fprintf(stderr,"no device.");
+        fprintf(stderr,"no device.\n");
         return -1;
     }
     //获得一个上下文
@@ -30,20 +30,20 @@ int CreateTool(cl_platform_id *platform,cl_device_id *device,cl_context *context
     };
     *context=clCreateContextFromType(properties,CL_DEVICE_TYPE_GPU,NULL,NULL,&err);
     if(err!=CL_SUCCESS||context==NULL){
-        fprintf(stderr,"no context.");
+        fprintf(stderr,"no context.\n");
         return -1;
     }
     //通过上下文对指定设备构建命令队列
     *commandQueue=clCreateCommandQueue(*context, *device, 0, &err);
     if(err!=CL_SUCCESS||commandQueue==NULL){
-        fprintf(stderr,"no commandQueue.");
+        fprintf(stderr,"no commandQueue.\n");
         return -1;
     }
     //读取内核文件并转换为字符串
     FILE *kernelFile;
     kernelFile=fopen(fileName,"r");
     if(kernelFile==NULL){
-        fprintf(stderr,"kernel file open failed.");
+        fprintf(stderr,"kernel file open failed.\n");
         return -1;
     }
     fseek(kernelFile, 0, SEEK_END);
@@ -56,7 +56,7 @@ int CreateTool(cl_platform_id *platform,cl_device_id *device,cl_context *context
     //在上下文环境下编译指定内核文件的程序对象
     *program=clCreateProgramWithSource(*context, 1, (const char **)&srcStr, NULL, &err);
     if(err!=CL_SUCCESS||program==NULL){
-        fprintf(stderr,"no program.");
+        fprintf(stderr,"no program.\n");
         return -1;
     }
     err=clBuildProgram(*program, 0, NULL, NULL,NULL,NULL);

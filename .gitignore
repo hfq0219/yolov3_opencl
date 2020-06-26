@@ -2,15 +2,12 @@
 *.dSYM
 *.csv
 *.out
-*.png
-*.jpg
 *.pyc
 *.a
 *.so
 *.weights
 old/
 mnist/
-data/
 caffe/
 grasp/
 images/
@@ -18,10 +15,11 @@ opencv/
 convnet/
 decaf/
 submission/
-cfg/
 voc/
 backup/
-darknet*
+darknet
+libdarknet.a
+libdarknet.so
 .fuse*
 *vscode*
 # OS Generated #
