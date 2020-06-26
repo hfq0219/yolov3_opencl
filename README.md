@@ -10,6 +10,8 @@ For more information see the [Darknet project website](http://pjreddie.com/darkn
 For questions or issues please use the [Google Group](https://groups.google.com/forum/#!forum/darknet).
 
 # usage #
+使用opencl进行计算，在Makefile里设置OPENCL=1，执行make即可
+
 wget https://pjreddie.com/media/files/yolov3.weights
 
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
