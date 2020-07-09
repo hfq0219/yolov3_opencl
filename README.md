@@ -11,6 +11,8 @@ For questions or issues please use the [Google Group](https://groups.google.com/
 
 # usage #
 使用opencl进行计算，在Makefile里设置OPENCL=1，执行make即可
+OpenCL代码主要在src/opencl_tool.h, src/opencl_tool.c里，实现OpenCL平台上下文和设备选择，内存分配及主机到设备和设备到主机的迁移。
+src/opencl_kernel.cl，包含所有设备端__kernel函数的实现。
 
 wget https://pjreddie.com/media/files/yolov3.weights
 
